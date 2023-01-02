@@ -1,0 +1,226 @@
+:root {
+    --text-color: #001858;
+    --text-sub: #172c66;
+    --main-bg: #f3d2c1;
+    --button-color: #f582ae;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+ul,
+li {
+    list-style: none;
+}
+main {
+    width: 100%;
+    min-height: 100%;
+    background: #fef6e4;
+}
+
+/* header */
+header,
+header #logo,
+header #nav-menu {
+    display: flex;
+    align-items: center;
+    color: var(--text-color);
+}
+header {
+    justify-content: space-between;
+}
+
+header > #logo {
+    font-size: 1.6em;
+    margin-left: 2em;
+    padding: 1.2em 0;
+    color: var(--text-color);
+}
+header > #logo span {
+    display: inline-block;
+    color: var(--button-color);
+    font-style: italic;
+    font-weight: 500;
+    padding-right: 2px;
+}
+
+header #nav-menu {
+    justify-content: flex-start;
+    font-size: 1.2em;
+    margin-right: 2.5em;
+    margin-bottom: -3.5em;
+}
+header #nav-menu li {
+    padding: 1em;
+    font-weight: 600;
+    cursor: pointer;
+}
+.active,
+#nav-menu li:hover {
+    background: var(--button-color);
+}
+/* middle */
+#mid-title {
+    margin-left: 1em;
+}
+#mid-title span {
+    line-height: 3em;
+}
+#mid-title > span:first-child {
+    font-size: 2em;
+    color: var(--text-color);
+    opacity: 0.7;
+    font-weight: 600;
+    padding-right: 0.2em;
+}
+#mid-title > span:last-child {
+    font-size: 1.5em;
+    color: var(--text-sub);
+}
+#mid-content {
+    background-color: var(--main-bg);
+    padding-bottom: 1em;
+}
+/* hex container */
+#hex-menu {
+    display: flex;
+    justify-content: center;
+    gap: 2em;
+    margin-bottom: 1em;
+}
+#hex-menu li {
+    padding: 1em;
+    width: 3em;
+    color: var(--text-sub);
+    text-align: center;
+    font-weight: 500;
+    position: relative;
+    cursor: pointer;
+}
+#hex-menu li::after,
+#hex-menu li::before {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 3px;
+    background-color: var(--button-color);
+    transition: all 0.8s;
+}
+#hex-menu li::after {
+    left: 0;
+    bottom: 5px;
+}
+#hex-menu li::before {
+    right: 0;
+    top: 5px;
+}
+#hex-menu li:hover::before,
+#hex-menu li:hover::after {
+    width: 100%;
+}
+/* hex container */
+#hex-container {
+    max-width: 80%;
+    margin: 0 auto;
+    padding-bottom: 2em;
+}
+#hex-img {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(20em, 1fr));
+    place-items: center center;
+    column-gap: 1.5em;
+    row-gap: 1.5em;
+}
+#hex-img li {
+    width: 16em;
+    height: 18em;
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+}
+#hex-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+}
+#hex-img li:hover {
+    animation: scaleIMG 2s infinite;
+}
+@keyframes scaleIMG {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+/* form */
+#form-container {
+    width: 80%;
+    color: var(--text-color);
+}
+#form-container h2 {
+    font-size: 2em;
+    margin: 1em;
+}
+fieldset {
+    margin: 1em 0;
+    padding: 1em;
+    min-width: 100%;
+}
+legend {
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+#form-container div {
+    display: flex;
+    width: 30em;
+    padding: 0;
+}
+#form-container div > label {
+    width: 10em;
+    color: var(--text-sub);
+    font-weight: 600;
+    font-size: 1.1em;
+}
+#form-container div > label:after {
+    content: "*";
+    color: red;
+}
+#form-container div > input,
+#form-container div > textarea {
+    flex: 1;
+}
+#form-container div > label[for="phoneNumber"]:after,
+#form-container div > label[for="gender"]:after {
+    content: none;
+}
+section#grid-checkbox {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: auto auto;
+    gap: 1em 0;
+}
+input[type="submit"],
+input[type="button"] {
+    cursor: pointer;
+    padding: 0.5em 0.8em;
+    font-size: 1.1em;
+    font-weight: 700;
+    color: var(--text-color);
+    background-color: var(--button-color);
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 2em;
+    margin-left: 1em;
+    animation: scaleIMG 3s infinite;
+}
+input[type="button"] {
+    animation: none;
+    margin-left: 2em;
+    opacity: 0.8;
+}
